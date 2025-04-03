@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
   def index
-    render plain: "welcome to action board", status: :ok
+    render Auth::IndexView.new
   end
 end

@@ -6,8 +6,13 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Src
+module ActionBoard
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join("app/views")
+    config.autoload_paths << Rails.root.join("app/views/layouts")
+    config.autoload_paths << Rails.root.join("app/views/components")
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
