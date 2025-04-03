@@ -6,15 +6,14 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
+  port: 5432
   database: actionboard
-  username: postgres
-  password: password
 
 production:
   <<: *default
-  database: actionboard
-  username: <%= ENV.fetch("DATABASE_USER", "postgres") %>
-  password: <%= Rails.application.credentials.dig(:db, :password) || ENV["DATABASE_PASSWORD"] %>
-  host: <%= ENV.fetch("DATABASE_HOST", "db") %>
+  host: <%= Rails.application.credentials.dig(:db, :host) %>
   port: 5432
-  # ssl: true
+  database: actionboard
+  username: <%= Rails.application.credentials.dig(:db, :username) %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
