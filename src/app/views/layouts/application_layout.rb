@@ -22,7 +22,12 @@ class ApplicationLayout < ApplicationView
         main(class: "container mx-auto p-6 flex-grow", &)
 
         footer(class: "bg-gray-800 text-white text-center p-4 mt-8") do
-          span { "© #{Time.now.year} ActionBoard. All rights reserved." }
+          span(class: 'text-sm') do
+            a(href: "https://github.com/willgcr/ActionBoard", target: "_blank", class: 'italic') { "ActionBoard" }
+            span {" © #{Time.now.year} Released under the GPLv3 License"}
+            br
+            span { "Built with 💛 in Brazil 🇧🇷" }
+          end
         end
       end
     end
