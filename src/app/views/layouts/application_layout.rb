@@ -11,7 +11,7 @@ class ApplicationLayout < ApplicationView
         meta charset: "UTF-8"
         csp_meta_tag
         csrf_meta_tags
-        stylesheet_link_tag 'tailwind', 'data-turbo-track': 'reload'
+        stylesheet_link_tag 'tailwind', data: { turbo_track: "reload" }
       end
 
       body(class: "bg-gray-100 text-gray-900 flex flex-col min-h-screen") do
