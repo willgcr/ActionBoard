@@ -25,3 +25,4 @@ jobs:
             cd ~/actionboard
             git pull origin master
             docker compose --env-file ./src/.env.production up -d --build
+            docker compose exec -T web ./bin/rails db:migrate

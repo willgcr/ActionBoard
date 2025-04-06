@@ -1,4 +1,4 @@
-class Auth::IndexView < ApplicationView
+class Setup::IndexView < ApplicationView
   def view_template
     div(class: "text-center p-10") do
       h1(class: "text-4xl font-bold text-blue-500") { "Welcome to ActionBoard!" }
