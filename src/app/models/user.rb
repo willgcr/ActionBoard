@@ -3,4 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
+
+  has_many :owned_lists, class_name: "List", foreign_key: :owner_user_id, dependent: :nullify
+
+  before_destroy :ensure_no_owned_lists
+
+  private
+
+  def ensure_no_owned_lists
+    if owned_lists.exists?
+      errors.add(:base, "Cannot delete account with active lists")
+      throw(:abort)
+    end
+  end
 end
