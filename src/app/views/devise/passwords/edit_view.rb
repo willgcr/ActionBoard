@@ -14,11 +14,11 @@ class Devise::Passwords::EditView < ApplicationView
 
       form(
         method: "post",
-        action: helpers.password_path(resource_name),
+        action: view_context.password_path(resource_name),
         class: "flex flex-col gap-4"
       ) do
         input(type: "hidden", name: "_method", value: "put")
-        input(type: "hidden", name: "authenticity_token", value: helpers.form_authenticity_token)
+        input(type: "hidden", name: "authenticity_token", value: view_context.form_authenticity_token)
         input(type: "hidden", name: "user[reset_password_token]", value: resource.reset_password_token)
 
         div(class: "form-control") do
@@ -59,7 +59,7 @@ class Devise::Passwords::EditView < ApplicationView
       end
 
       div(class: "mt-6 text-sm text-center text-gray-600") do
-        a(href: helpers.new_user_session_path, class: "link link-hover") { "Back to login" }
+        a(href: new_user_session_path, class: "link link-hover") { "Back to login" }
       end
     end
   end

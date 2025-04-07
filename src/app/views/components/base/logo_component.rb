@@ -1,4 +1,4 @@
-class LogoComponent < ApplicationView
+class Base::LogoComponent < ApplicationComponent
 
   def initialize(dark_bg: false)
     @dark_bg = dark_bg

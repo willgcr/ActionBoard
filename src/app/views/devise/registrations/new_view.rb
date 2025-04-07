@@ -14,8 +14,8 @@ class Devise::Registrations::NewView < ApplicationView
         render Auth::ErrorMessageComponent.new(resource: resource)
       end
 
-      form(method: "post", action: helpers.registration_path(resource_name), class: "flex flex-col gap-4") do
-        input(type: "hidden", name: "authenticity_token", value: helpers.form_authenticity_token)
+      form(method: "post", action: view_context.registration_path(resource_name), class: "flex flex-col gap-4") do
+        input(type: "hidden", name: "authenticity_token", value: view_context.form_authenticity_token)
 
         div(class: "form-control") do
           label(for: "user_email", class: "label text-sm text-gray-700") { "Email" }
@@ -69,7 +69,7 @@ class Devise::Registrations::NewView < ApplicationView
       end
 
       div(class: "mt-6 text-sm text-center text-gray-600") do
-        a(href: helpers.new_user_session_path, class: "link link-hover") { "Already have an account? Login" }
+        a(href: new_user_session_path, class: "link link-hover") { "Already have an account? Login" }
       end
     end
   end

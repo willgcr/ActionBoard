@@ -12,10 +12,10 @@ class Devise::Passwords::NewView < ApplicationView
 
       form(
         method: "post",
-        action: helpers.password_path(:user),
+        action: view_context.password_path(:user),
         class: "flex flex-col gap-4"
       ) do
-        input(type: "hidden", name: "authenticity_token", value: helpers.form_authenticity_token)
+        input(type: "hidden", name: "authenticity_token", value: view_context.form_authenticity_token)
 
         div(class: "form-control") do
           label(for: "user_email", class: "label text-sm text-gray-700") { "Email" }
@@ -37,8 +37,8 @@ class Devise::Passwords::NewView < ApplicationView
       end
 
       div(class: "mt-6 text-sm text-center text-gray-600 space-x-4") do
-        a(href: helpers.new_user_session_path, class: "link link-hover") { "Login" }
-        a(href: helpers.new_user_registration_path, class: "link link-hover") { "Register" }
+        a(href: new_user_session_path, class: "link link-hover") { "Login" }
+        a(href: new_user_registration_path, class: "link link-hover") { "Register" }
       end
     end
   end

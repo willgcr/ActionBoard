@@ -19,11 +19,11 @@ class Devise::Registrations::EditView < ApplicationView
 
       form(
         method: "post",
-        action: helpers.registration_path(resource_name),
+        action: view_context.registration_path(resource_name),
         class: "flex flex-col gap-4"
       ) do
         input(type: "hidden", name: "_method", value: "put")
-        input(type: "hidden", name: "authenticity_token", value: helpers.form_authenticity_token)
+        input(type: "hidden", name: "authenticity_token", value: view_context.form_authenticity_token)
 
         div(class: "form-control") do
           label(for: "user_email", class: "label text-sm text-gray-700") { "Email" }
@@ -50,7 +50,7 @@ class Devise::Registrations::EditView < ApplicationView
         div(class: "form-control") do
           label(for: "user_password", class: "label text-sm text-gray-700") do
             span { "New Password" }
-            span(class: "text-xs italic ml-2 text-gray-500") { "(leave blank if you don't want to change it)" }
+            span(class: "text-xs italic ml-2 text-gray-500 hidden sm:visible") { "(leave blank if you don't want to change it)" }
           end
 
           input(
@@ -81,7 +81,7 @@ class Devise::Registrations::EditView < ApplicationView
         div(class: "form-control") do
           label(for: "user_current_password", class: "label text-sm text-gray-700") do
             span { "Current password" }
-            span(class: "text-xs italic ml-2 text-gray-500") { "(we need your current password to confirm your changes)" }
+            span(class: "text-xs italic ml-2 text-gray-500 hidden sm:visible") { "(we need your current password to confirm your changes)" }
           end
 
           input(
@@ -107,7 +107,7 @@ class Devise::Registrations::EditView < ApplicationView
       end
 
       div(class: "mt-4 text-sm text-center text-gray-600") do
-        a(href: helpers.root_path, class: "link link-hover") { "Back" }
+        a(href: root_path, class: "link link-hover") { "Back" }
       end
     end
   end
@@ -123,15 +123,15 @@ class Devise::Registrations::EditView < ApplicationView
   def render_button_to_cancel_account
     form(
       method: "post",
-      action: helpers.registration_path(resource_name),
+      action: view_context.registration_path(resource_name),
       class: "inline-block"
     ) do
       input(type: "hidden", name: "_method", value: "delete")
-      input(type: "hidden", name: "authenticity_token", value: helpers.form_authenticity_token)
+      input(type: "hidden", name: "authenticity_token", value: view_context.form_authenticity_token)
 
       button(
         type: "submit",
-        class: "btn btn-sm bg-red-500 hover:bg-red-600 text-white rounded shadow-sm transition",
+        class: "btn btn-sm btn-error text-white",
         data: {
           turbo_confirm: "Are you sure?",
           confirm: "Are you sure?"

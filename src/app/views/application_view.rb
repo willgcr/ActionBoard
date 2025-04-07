@@ -1,3 +1,3 @@
-class ApplicationView < Phlex::HTML
+class ApplicationView < ApplicationComponent
 	include Phlex::Rails::Helpers
 end

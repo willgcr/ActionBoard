@@ -1,4 +1,4 @@
-class Auth::ErrorMessageComponent < Phlex::HTML
+class Auth::ErrorMessageComponent < ApplicationComponent
   def initialize(resource:)
     @resource = resource
   end

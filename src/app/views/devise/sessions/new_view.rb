@@ -12,10 +12,10 @@ class Devise::Sessions::NewView < ApplicationView
 
       form(
         method: "post",
-        action: helpers.session_path(:user),
+        action: view_context.session_path(:user),
         class: "flex flex-col gap-4"
       ) do
-        input(type: "hidden", name: "authenticity_token", value: helpers.form_authenticity_token)
+        input(type: "hidden", name: "authenticity_token", value: view_context.form_authenticity_token)
 
         div(class: "form-control") do
           label(for: "user_email", class: "label text-sm text-gray-700") { "Email" }
@@ -51,10 +51,10 @@ class Devise::Sessions::NewView < ApplicationView
 
       div(class: "mt-6 text-sm text-center text-gray-600 space-y-2") do
         div do
-          a(href: helpers.new_user_password_path, class: "link link-hover") { "Forgot your password?" }
+          a(href: new_user_password_path, class: "link link-hover") { "Forgot your password?" }
         end
         div do
-          a(href: helpers.new_user_registration_path, class: "link link-hover") { "Create an account" }
+          a(href: new_user_registration_path, class: "link link-hover") { "Create an account" }
         end
       end
     end
