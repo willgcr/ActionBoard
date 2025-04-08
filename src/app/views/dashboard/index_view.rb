@@ -25,12 +25,6 @@ class Dashboard::IndexView < ApplicationView
         stat_card("Pending Tasks", @pending_tasks)
         stat_card("Collaborating in", "#{@collaborating_lists} Lists")
       end
-
-      div(class: "fixed bottom-6 right-6 z-10") do
-        button(class: "btn btn-circle btn-primary text-white shadow-md hover:shadow-lg transition") do
-          span(class: "text-xl") { "+" }
-        end
-      end
     end
   end
 
