@@ -1,6 +1,20 @@
 class DashboardController < ApplicationController
   def index
-    render Dashboard::IndexView.new
+    user = current_user
+    accessible_lists = user.available_lists
+    tasks = user.all_accessible_tasks
+
+    recent_tasks = accessible_lists.order(updated_at: :desc).limit(3)
+
+    render Dashboard::IndexView.new(
+      current_user: user,
+      total_tasks: tasks.count,
+      total_lists: user.owned_lists.count,
+      completed_tasks: tasks.completed.count,
+      pending_tasks: tasks.pending.count,
+      collaborating_lists: user.shared_lists.count,
+      recent_tasks: recent_tasks
+    )
   end
 
   def lists

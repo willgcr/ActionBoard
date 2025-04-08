@@ -5,6 +5,7 @@ class ApplicationComponent < Phlex::HTML
   include Phlex::Rails::Helpers::FormWith
   include Phlex::Rails::Helpers::OptionsForSelect
   include Phlex::Rails::Helpers::TurboFrameTag
+  include Phlex::Rails::Helpers::TimeAgoInWords
   include ActionView::RecordIdentifier
   include Rails.application.routes.url_helpers
 
