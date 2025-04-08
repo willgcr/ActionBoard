@@ -10,6 +10,14 @@ class User < ApplicationRecord
 
   before_destroy :ensure_no_owned_lists
 
+  def available_lists
+    List.where(id: owned_lists.select(:id)).or(List.where(id: shared_lists.select(:id)))
+  end
+
+  def all_accessible_tasks
+    Task.accessible_by(Ability.new(self))
+  end
+
   private
 
   def ensure_no_owned_lists

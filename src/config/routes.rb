@@ -20,6 +20,16 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root to: "dashboard#index", as: :authenticated_root
+    get "lists", to: "dashboard#lists", as: :user_lists
+    get "tasks", to: "dashboard#tasks", as: :user_tasks
+    resources :tasks, only: [:new, :create, :show, :update, :edit, :destroy]
+    resources :lists, only: [:new, :create, :show, :update, :edit, :destroy]
+    resources :lists do
+      member do
+        get :share
+        post :share_submit
+      end
+    end
   end
 
   unauthenticated do

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include CanCan::ControllerAdditions
+
   layout -> { ApplicationLayout }
 
   before_action :authenticate_user!

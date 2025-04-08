@@ -41,13 +41,13 @@ class Base::NavbarComponent < ApplicationComponent
             end
           end
           li(class: 'border border-gray-100 rounded-md') do
-            a(href: "#") do 
+            a(href: user_lists_path) do 
               svg(xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "none", stroke_width: "1.5", stroke: "currentColor", class: "size-5") { |s| s.path(stroke_linecap: "round", stroke_linejoin: "round", d: "M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z") }
               span { "Lists" }
             end
           end
           li(class: 'border border-gray-100 rounded-md') do
-            a(href: "#") do
+            a(href: user_tasks_path) do
               svg(xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "none", stroke_width: "1.5", stroke: "currentColor", class: "size-5") { |s| s.path(stroke_linecap: "round", stroke_linejoin: "round", d: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z") }
               span { "Tasks" }
             end
@@ -73,12 +73,12 @@ class Base::NavbarComponent < ApplicationComponent
       end
 
       nav(class: "flex gap-[100px] items-center") do
-        a(href: "#", class: "btn btn-sm btn-ghost flex gap-1 items-center hover:text-white text-black") do
+        a(href: user_lists_path, class: "btn btn-sm btn-ghost flex gap-1 items-center hover:text-white text-black") do
           svg(xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "none", stroke_width: "1.5", stroke: "currentColor", class: "size-4") { |s| s.path(stroke_linecap: "round", stroke_linejoin: "round", d: "M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z") }
           span { "Lists" }
         end
 
-        a(href: "#", class: "btn btn-sm btn-ghost flex gap-1 items-center hover:text-white text-black") do
+        a(href: user_tasks_path, class: "btn btn-sm btn-ghost flex gap-1 items-center hover:text-white text-black") do
           svg(xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "none", stroke_width: "1.5", stroke: "currentColor", class: "size-4") { |s| s.path(stroke_linecap: "round", stroke_linejoin: "round", d: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z") }
           span { "Tasks" }
         end

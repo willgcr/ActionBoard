@@ -9,6 +9,10 @@ class List < ApplicationRecord
 
   before_validation :set_public_uid, on: :create
 
+  def shared_with?(user)
+    shared_users.exists?(user.id)
+  end
+
   private
 
   def set_public_uid
